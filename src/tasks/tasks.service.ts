@@ -4,6 +4,7 @@ import { v4 } from 'uuid';
 
 @Injectable()
 export class TasksService {
+    //simulate db
   private tasks:Task[] =  [{
         id:'1',
         title:'Task 1',
@@ -25,7 +26,9 @@ export class TasksService {
             description,
             status:taskStatus.PENDING
         }
-        this.tasks.push()
+        this.tasks.push(task)
+
+        return task;
     }
     updateTask(){}
     deleteTask(){}
