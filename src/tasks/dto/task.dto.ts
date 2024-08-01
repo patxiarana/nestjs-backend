@@ -1,5 +1,5 @@
 import { taskStatus } from "../task.entity";
-import { IsNotEmpty, IsOptional, IsString, Min, MinLength } from "class-validator";
+import { IsIn, IsNotEmpty, IsOptional, IsString, Min, MinLength } from "class-validator";
 
 export class CreateTaskDTO {
     @IsString()
@@ -23,6 +23,8 @@ export class UpdateTaskDTO  {
     @IsString()
     @IsNotEmpty()
     @MinLength(3)
-    description?:string; 
+    description?:string;
+    @IsString()
+    @IsIn([taskStatus.DONE,taskStatus.IN_PROGRESS,taskStatus.PENDING]) 
     status?:taskStatus; 
 }
