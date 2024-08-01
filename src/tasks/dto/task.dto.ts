@@ -14,7 +14,13 @@ export class CreateTaskDTO {
 }
 
 export class UpdateTaskDTO  {
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(3)
     title?:string;
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(3)
     description?:string; 
     status?:taskStatus; 
 }
